@@ -1,5 +1,31 @@
 package com.product;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProductRepository {
 
+    static List<Product> products = new ArrayList<>();
+
+    static {
+        products.add(new Product(1, "Laptop", 50000));
+        products.add(new Product(2, "Mouse", 500));
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public Product getProduct(int id) {
+        for (Product p : products) {
+            if (p.getId() == id) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public void addProduct(Product product) {
+        products.add(product);
+    }
 }
